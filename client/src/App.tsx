@@ -34,7 +34,10 @@ function App() {
     }
 
   return (
-    <h1>books</h1>
+    <div>
+      <h1>books</h1>
+      <AddBook onAdd={addBook} />
+    </div>
   )
 }
 

@@ -7,7 +7,7 @@ interface AddBookProps {
 const AddBook: React.FC<AddBookProps> = ({onAdd}) => {
   const [name, setName] = useState("")
   const [author, setAuthor] = useState("")
-  const [pages, setPages] = useState("")
+  const [pages, setPages] = useState<number | "">("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -30,7 +30,7 @@ const AddBook: React.FC<AddBookProps> = ({onAdd}) => {
             </label>     
             <label>Pages
                 <input type="number"
-                onChange={(e) => setPages(e.target.value)}
+                onChange={(e) => setPages(Number(e.target.value))}
                 value={pages}/>
             </label>
             <button type="submit">Add book</button>
