@@ -17,16 +17,19 @@ const db: Connection = mongoose.connection
 
 db.on("error", console.error.bind(console, "MongoDB connection error"))
 
-const corsOptions: CorsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200,
+if (process.env.NODE_ENV === 'development') {
+    const corsOptions: CorsOptions = {
+        origin: 'http://localhost:3000',
+        optionsSuccessStatus: 200
+    }
+    app.use(cors(corsOptions))
 }
 
-app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 app.use(express.static(path.join(__dirname, "../public")))
+app.use("/api/book", bookRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
