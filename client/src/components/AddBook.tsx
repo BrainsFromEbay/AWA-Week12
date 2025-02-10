@@ -18,23 +18,29 @@ const AddBook: React.FC<AddBookProps> = ({onAdd}) => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <label>Book name
-                <input type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}/>
-            </label>
-            <label>Author
-                <input type="text"
-                onChange={(e) => setAuthor(e.target.value)}      
-                value={author}/> 
-            </label>     
-            <label>Pages
-                <input type="number"
-                onChange={(e) => setPages(Number(e.target.value))}
-                value={pages}/>
-            </label>
-            <button type="submit">Add book</button>
-        </form>
+          <label>Book name
+              <input 
+                  id="name"
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}/>
+          </label>
+          <label>Author
+              <input 
+                  id="author"
+                  type="text"
+                  onChange={(e) => setAuthor(e.target.value)}      
+                  value={author}/> 
+          </label>     
+          <label>Pages
+              <input 
+                  id="pages"
+                  type="number"
+                  onChange={(e) => setPages(Number(e.target.value))}
+                  value={pages}/>
+          </label>
+          <button id="submit" type="submit">Add book</button>
+      </form>
     </div>
   )
 }

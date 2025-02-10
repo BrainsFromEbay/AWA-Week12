@@ -38,16 +38,15 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
-        <h1>books</h1>
-        <AddBook onAdd={addBook} />
-        <Books books={books} />
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/book/:bookName" element={<BookDetails books={books} />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <h1>books</h1>
+      <AddBook onAdd={addBook} />
+      <Books books={books} />
+      <Routes>
+        <Route path="/book/:bookName" element={<BookDetails books={books} />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
   )
 }
 
