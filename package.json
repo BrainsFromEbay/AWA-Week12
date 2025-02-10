@@ -7,9 +7,11 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "preinstall": "cd server && npm install",
     "install": "cd client && npm install",
     "dev:client": "cd client && npm run dev",
-    "preinstall": "cd server && npm install",
-    "dev:server": "cd server && npm run dev"
+    "dev:server": "cd server && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
   }
 }
