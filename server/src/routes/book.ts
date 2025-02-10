@@ -14,4 +14,18 @@ router.post("/", async (req: Request, res: Response) => {
     }
 })
 
+router.get("/:name", async (req: Request, res: Response): Promise<void> => {
+    try {
+        const book = await Book.findOne({name: req.params.name})
+        if (!book) {
+            res.status(404).send()
+            return
+        }
+        res.send(book)
+    } catch (error: any) {
+        console.error(`Error ${error}`)
+        res.status(500).send(error)
+    }
+})
+
 export default router
