@@ -1,6 +1,9 @@
 import './App.css'
-import AddBook from "./components/AddBook"
 import {useState} from "react"
+import AddBook from "./components/AddBook"
+import Books from "./components/Books"
+import BookDetails from "./components/BookDetails"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 interface IBook {
   id: number,
@@ -35,8 +38,15 @@ function App() {
 
   return (
     <div>
-      <h1>books</h1>
-      <AddBook onAdd={addBook} />
+      <BrowserRouter>
+        <h1>books</h1>
+        <AddBook onAdd={addBook} />
+        <Books books={books} />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/book/:bookName" element={<BookDetails books={books} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
